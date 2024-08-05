@@ -7,8 +7,8 @@ module.exports = function toReadable (number) {
   if (number < 20) {
     return collection[number];
   } else if (number < 100) {
-    return collectionTens[Math.floor(number / 10 - 2)] + ' ' + collection[number % 10];
+    return collectionTens[Math.floor(number / 10 - 2)] + (number % 10 !== 0 ? ' ' + collection[number % 10] : '');
   } else if (number < 1000) {
-    return collection[Math.floor(number / 100)] + ' hundred' + ' ' + toReadable(number % 100) + ' ';
+    return collection[Math.floor(number / 100)] + ' hundred' + (number % 100 !== 0 ? ' ' + toReadable(number % 100) : '');
   };
 }
